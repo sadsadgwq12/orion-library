@@ -49,11 +49,11 @@ end
 local Orion = Instance.new("ScreenGui")
 Orion.Name = "Orion"
 
-Orion.Parent = gethui() or game.CoreGui
+Orion.Parent = get_hidden_gui() or game.CoreGui
 
 
-if gethui then
-	for _, Interface in ipairs(gethui():GetChildren()) do
+if get_hidden_gui then
+	for _, Interface in ipairs(get_hidden_gui():GetChildren()) do
 		if Interface.Name == Orion.Name and Interface ~= Orion then
 			Interface:Destroy()
 		end
@@ -67,8 +67,10 @@ else
 end
 
 function OrionLib:IsRunning()
-	if gethui then
-		return Orion.Parent == gethui()
+	if get_hidden_gui
+		
+		then
+		return Orion.Parent == get_hidden_gui()
 	else
 		return Orion.Parent == game:GetService("CoreGui")
 	end
